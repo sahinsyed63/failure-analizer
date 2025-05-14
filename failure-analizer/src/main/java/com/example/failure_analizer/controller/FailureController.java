@@ -70,4 +70,9 @@ public class FailureController {
     			 .body(new InputStreamResource(bis));
     			 
      }
+     
+     @GetMapping("/greeting")
+     public String getMsg() {
+    	 return "hi";
+     }
 }
