@@ -72,7 +72,7 @@ public class FailureController {
      }
      
      @GetMapping("/greeting")
-     public String getMsg() {
-    	 return "hi";
+     public ResponseEntity<String> getMsg() {
+    	 return ResponseEntity.ok("Hello My First api");
      }
 }
