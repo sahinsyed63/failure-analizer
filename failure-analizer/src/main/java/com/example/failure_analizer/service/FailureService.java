@@ -3,7 +3,7 @@ package com.example.failure_analizer.service;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
-
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,7 +44,17 @@ public class FailureService {
 		return getAllRecords;
 	}
 	
-	//generate report
+	 //get record by userId
+	public Failure getRecordById(Long id) {
+		
+		Optional<Failure> opt =  failureRepository.findById(id);
+		   if(opt.isPresent()) {
+			return opt.get();
+		   }
+		  else {
+			throw new NoRecordFoundException("No Records Found");
+		}
+	}
 	
 	
 	   

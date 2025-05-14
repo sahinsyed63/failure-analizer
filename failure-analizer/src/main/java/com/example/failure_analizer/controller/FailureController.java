@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -75,4 +76,11 @@ public class FailureController {
      public ResponseEntity<String> getMsg() {
     	 return ResponseEntity.ok("Hello My First api");
      }
+     
+     @GetMapping("/{id}")
+     public ResponseEntity<Failure> getRecordById(@PathVariable Long id) {
+    	 Failure failure = failureService.getRecordById(id);
+    	 return new ResponseEntity<>(failure,HttpStatus.OK);
+     }
+     
 }
