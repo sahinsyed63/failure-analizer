@@ -70,4 +70,9 @@ public class FailureController {
     			 .body(new InputStreamResource(bis));
     			 
      }
+     
+     @GetMapping("/greeting")
+     public ResponseEntity<String> getMsg() {
+    	 return ResponseEntity.ok("Hello My First api");
+     }
 }
